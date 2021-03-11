@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import Slider from '@react-native-community/slider';
 import Clipboard from 'expo-clipboard';
 
-let charset = 'abcdefghijklmnopqrstuvxywzABCDEFGHIJKLMNOPQRSTUVXYWZ0123456789!@?#';
+let charset = 'abcdefghijklmnopqrstuvxywzABCDEFGHIJKLMNOPQRSTUVXYWZ0123456789!@?#-&';
 
 export default function App() {
 
@@ -26,15 +26,21 @@ export default function App() {
   }
 
   return (
-    
+        
     <View style={styles.container}>
+
+      <View style={styles.name}>
+        <Text style={styles.buttonText}>Random Password Generator</Text>
+      </View>
+
+
       <Image
         source={require('./src/assets/logo.png')}
         style={styles.logo}
       />
 
 
-      <Text style={styles.title}>{size} Caracteres</Text>
+      <Text style={styles.title}>{size} characters</Text>
 
 
       <View style={styles.area}>
@@ -50,7 +56,7 @@ export default function App() {
       </View>
 
       <TouchableOpacity style={styles.button} onPress={generatePass}>
-        <Text style={styles.buttonText}>generate random password</Text>
+        <Text style={styles.buttonText}>generate</Text>
       </TouchableOpacity>
 
       {password !== '' && (
@@ -72,6 +78,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#F3F3FF'
+  },
+  name:{
+    backgroundColor: '#FFA200',
+    width: '80%',
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+    marginBottom: 120,
+    marginTop: 15
   },
   logo: {
     marginBottom: 60
